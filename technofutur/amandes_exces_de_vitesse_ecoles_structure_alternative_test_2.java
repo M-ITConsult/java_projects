@@ -11,7 +11,7 @@ public class amandes_exces_de_vitesse_ecoles_structure_alternative_test_2 {
         final String retraisDuPermisDeConduire = "possible";
         final String tribunal = "entre 80 EUR et 4.000 EUR";
 
-        int kmhVoiture = 31;
+        int kmhVoiture = 22;
         int montantTotalKmhSup = (kmhVoiture > kmhSup) ? (kmhVoiture - kmhSup) * tarifParKmhEcoles : 0;
 
         if (kmhVoiture <= 10) {
