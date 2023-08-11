@@ -147,4 +147,46 @@ public class Main {
 //        }
 //        System.out.print("La somme des nombres du tableau d'entiers vaut " + somme);
 //    }
+
+//    public static void main(String[] args){
+//
+//        StringBuffer maChaine = new StringBuffer();
+//        votreChaine(maChaine);
+//        System.out.println("Votre chaîne de caractères est : " + maChaine);
+//    }
+//
+//    public static void votreChaine(StringBuffer chaineUtilisateur){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Veuillez rentrer votre chaîne de caractères : ");
+//        String val = scanner.next();
+//        chaineUtilisateur.append(val);
+//    }
+
+//    public static void main(String[] args){
+//        int nombreUn = 15, nombreDeux = 27;
+//        System.out.println("Votre somme de "+ nombreUn + " et " + nombreDeux + " vaut : " + somme(nombreUn,nombreDeux));
+//    }
+//
+//    public static int somme(int val1, int val2){
+//        return val1 + val2;
+//    }
+
+//    public static void main(String[] args){
+//        String tabChaine[] = {"Bonjour", "Guten Tag", "Hello", "Namaskar", "Annyong haseyo", "Hej", "Buenos días", "Kalimera", "Aloha", "Konnichi wa", "Ave", "Goede morgen"};
+//
+//        int nombreCaracteres[] = new int[tabChaine.length];
+//
+//        for (int i = 0; i < tabChaine.length; i++) {
+//            nombreCaracteres[i] = calculNombreCaracteres(tabChaine[i]);
+//        }
+//
+//        for (int i = 0; i < tabChaine.length; i++) {
+//            System.out.println("La longeur de " + tabChaine[i]  + " est de " + nombreCaracteres[i]);
+//        }
+//    }
+//
+//    public static int calculNombreCaracteres (String chaineChar){
+//        int longueurChaine = chaineChar.length();
+//        return longueurChaine;
+//    }
 }
