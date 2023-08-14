@@ -162,17 +162,18 @@ public class Main {
 //        chaineUtilisateur.append(val);
 //    }
 
-//    public static void main(String[] args){
-//        int nombreUn = 15, nombreDeux = 27;
-//        System.out.println("Votre somme de "+ nombreUn + " et " + nombreDeux + " vaut : " + somme(nombreUn,nombreDeux));
-//    }
-//
-//    public static int somme(int val1, int val2){
-//        return val1 + val2;
-//    }
+    public static void main(String[] args){
+        int nombreUn = 15, nombreDeux = 27;
+        System.out.println("Votre somme de "+ nombreUn + " et " + nombreDeux + " vaut : " + somme(nombreUn,nombreDeux));
+    }
+
+    public static int somme(int val1, int val2){
+        return val1 + val2;
+    }
 
 //    public static void main(String[] args){
-//        String tabChaine[] = {"Bonjour", "Guten Tag", "Hello", "Namaskar", "Annyong haseyo", "Hej", "Buenos días", "Kalimera", "Aloha", "Konnichi wa", "Ave", "Goede morgen"};
+//        String tabChaine[] = {"Bonjour", "Guten Tag", "Hello", "Namaskar", "Annyong haseyo", "Hej", "Buenos días",
+//        "Kalimera", "Aloha", "Konnichi wa", "Ave", "Goede morgen"};
 //
 //        int nombreCaracteres[] = new int[tabChaine.length];
 //
