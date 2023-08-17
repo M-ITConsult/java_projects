@@ -1,0 +1,185 @@
+<!-- <html>
+  <head>
+
+  </head>
+  <body>
+    <button>Say Hello!</button>
+    
+    <script>
+      let element = document.querySelector("button");
+      element.addEventListener("click" , () => {
+        alert("Hello There!")
+      })
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    
+  </head>
+  <body>
+        <button>Ajouter un bouton</button>
+        
+        <script>
+          let bouton = document.querySelector("button");
+          bouton.addEventListener("click", addBouton)
+        
+          function addBouton(){
+            let element = document.createElement("button")
+            element.innerText = " Nouveau bouton "
+            document.body.append(element);
+            
+            element.addEventListener("click", direBonjour);
+          }
+          
+          function direBonjour(){
+            alert("Bonjour")
+          }
+        </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    
+  </head>
+  <body>
+        <button>Dire Bonjour 1x</button>
+        
+        <script>
+          let element = document.querySelector("button")
+          element.addEventListener("click", direBonjour);
+          
+          function direBonjour(){
+            alert("Bonjour")
+            element.removeEventListener("click", direBonjour)
+          }
+        </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    
+  </head>
+  <body>
+     <input placeholder="Introduire une valeur">
+     <div></div>
+    <script>
+      const element = document.querySelector("input")
+      const output = document.querySelector("div")
+      element.addEventListener("keyup", (e) => {
+        output.innerHTML = output.innerHTML + "<br>" + e.target.value 
+      })
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+    <button>CLICK ME</button>
+    <div>
+      
+    </div>
+    <script>
+      let compteur = 0
+      
+      const btn = document.querySelector("button")
+      const output = document.querySelector("div")
+      
+      btn.onclick = () => {
+        output.innerHTML += `J'ai cliqué ${compteur++} fois sur le bouton <br>`;
+      }
+      
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+    <input id="data"><br>
+    <label id="display"></label>
+    
+    <div id="logs"></div>
+    
+    <script>
+      const data = document.getElementById("data")
+      const display = document.getElementById("display")
+      const logs = document.getElementById("logs")
+      
+      data.onkeypress = ($e)=> {
+          let pressed = $e.key
+          display.innerText = $e.target.value
+          logs.innerHTML += `La touche '${pressed}' a été pressée<br>`
+      }
+      
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+    <div>
+      <label>Nombre 1</label>
+      <input id="nb1"> 
+      <br><br>
+      <label>Nombre 2</label>
+      <input id="nb2">
+      <br><br>
+    </div>
+    
+    <div>
+      <button>+</button>
+      <button>-</button>
+      <button>*</button>
+      <button>/</button>
+    </div>
+    
+    <div id="logs">
+    
+    </div>
+    
+    <script>
+        let logs = document.getElementById("logs")
+        let btns = document.querySelectorAll('button')
+        
+        btns.forEach( b => b.onclick = ($e) => {
+          let nb1 = Number(document.getElementById("nb1").value)
+          let nb2 = Number(document.getElementById("nb2").value)
+          let value = '';
+          
+          switch($e.target.innerText){
+            case "+": value = nb1 + nb2; break;
+            case "-": value = nb1 - nb2; break;
+            case "*": value = nb1 * nb2; break;
+            case "/": value = nb1 / nb2; break;
+          }
+          
+          logs.innerText = value;
+        })
+        
+    </script>
+  </body>
+</html>

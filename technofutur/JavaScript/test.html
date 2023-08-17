@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form name="userForm">
+        <input name="username" placeholder="entrez votre username">
+        <button type="button" onclick="executer()">Récuperer</button>
+    </form>
+
+    <script>
+        function executer(){
+            let username = document.userForm.username.value
+            console.log("Vous avez entré : ", username)
+        }
+    </script>
+</body>
+</html> -->
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <form name="user">
+        <label>Name: </label>
+        <input name="name" placeholder="Your name">
+        <label>Password: </label>
+        <input type="password" name="password" placeholder="Your password">
+        <button type="button" onclick="showForm()">Show your data!</button>
+    </form>
+     <div></div>
+    <script>
+      function showForm(){
+        const name = document.user.name.value
+        const password = document.user.password.value
+
+        let out = `Your name: ${name} \n`
+        out += `Your password: ${password}`
+
+        console.log(out)
+      }
+    </script>
+  </body>
+</html>
