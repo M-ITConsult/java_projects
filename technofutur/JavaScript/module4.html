@@ -13,7 +13,7 @@
 
 <!------------------------------------------------------------------------------>
 
-<html>
+<!-- <html>
   <head>
       <script>
         const maVariableGlobale = "Je suis accessible partout"
@@ -25,7 +25,135 @@
   </head>
   <body>
     <button onclick="testVariableGlobale()">Lancer l'exemple</button>
-  </body>
-</html>
+  </body> 
+</html> -->
 
 <!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+    <script>
+      //Mettez votre script ici
+      function hello() {
+        document.write("Hello There!")
+        }
+        
+        hello();
+    </script>
+  </head>
+  <body>
+    
+    <script>
+      //Ou mettez votre script ici
+      //Choisissez sagement
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+    <script>
+      //Mettez votre script ici
+      let name = prompt("Entrez votre prénom: ")
+      function hello(name) {
+        document.write(`Hello ${name}!` )
+      }
+      
+      hello(name)
+
+    </script>
+  </head>
+  <body>
+    
+    <script>
+      //Ou mettez votre script ici
+      //Choisissez sagement
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+    <script>
+        //Définition de la fonction
+        function calculer(nb1, nb2){
+          return nb1 + nb2;
+        }
+        
+        //Récupération des valeurs
+        const valeur1 = prompt("Entrez un premier nombre");
+        const valeur2 = prompt("Entrez un deuxième nombre")
+        
+        //Affichage des valeurs
+        document.write("Valeur 1 : " + valeur1 + "<br>")
+        document.write("Valeur 2 : " + valeur2 + "<br>")
+        
+        //Affichage du résultat avec Appel de la fonction
+        document.write("Résultat : " + calculer(Number(valeur1), Number(valeur2)))
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+    <script>
+    
+        const replacementMask = /e|é|è|ê/gi
+        const phrase = prompt("Ecris moi une phrase intelligente")
+        
+        function mask(data){
+             return data.replace(replacementMask, '*')
+        }
+        
+        document.write("Phrase initiale : " + phrase + "<br>")
+        document.write("Phrase finale : " + mask(phrase))
+        
+    </script>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<!-- <html>
+  <head>
+      <script>
+          function generateNumber(){
+            let number = Math.floor(Math.random() * 10)
+            alert("Nombre aléatoire généré : " + number);
+          }
+      </script>
+  </head>
+  <body>
+      <button onclick="generateNumber()">Générer un entier entre 0 et 9 </button>
+  </body>
+</html> -->
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+      <script>
+          function generateNumber(){
+            let number = Math.floor(Math.random() * 6)
+            document.write(number);
+          }
+        generateNumber();
+      </script>
+  </head>
+  <body>
+  </body>
+</html>
