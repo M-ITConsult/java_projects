@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 public class baseProgrammationProcedural {
 
