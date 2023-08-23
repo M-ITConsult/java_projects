@@ -1,4 +1,4 @@
-package technofutur.Java.penduGame;
+package technofutur.Java.other;
 
 import java.util.Scanner;
 
