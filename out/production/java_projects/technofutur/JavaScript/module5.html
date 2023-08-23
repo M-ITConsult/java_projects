@@ -1,0 +1,324 @@
+<html>
+  <head>
+      <script>
+        function manipuler(){
+          //On récupère tous les divs de la page et stock le
+          //1er de la page dans la variable bloc
+          let bloc = document.getElementsByTagName("div")[0];
+          //On modifie son contenu Html en lui ajoutant
+          //un retour de ligne et du texte
+          bloc.innerHTML = bloc.innerHTML + "<br> Ajoutons une ligne supplémentaire"
+        }
+      </script>
+  </head>
+  <body>
+    <div>
+      Ceci est un bloc de texte
+    </div>
+    <br>
+    <button onclick="manipuler()">Modifier le bloc de texte</button>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+      <script>
+        function manipuler(){
+          //On récupère l'élement qui a l'id "container"
+          let bloc = document.getElementById("container");
+          //On modifie son contenu Html en lui ajoutant
+          //un retour de ligne et du texte
+          bloc.innerHTML = bloc.innerHTML + "<br> Ajoutons une ligne supplémentaire"
+        }
+      </script>
+  </head>
+  <body>
+    <div id="container">
+      Ceci est un bloc de texte
+    </div>
+    <br>
+    <button onclick="manipuler()">Modifier le bloc de texte</button>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+      <script>
+        function manipuler(){
+          //On récupère le premier élément div de la page
+          let bloc = document.querySelector("div");
+          //On modifie son contenu Html en lui ajoutant
+          //un retour de ligne et du texte
+          bloc.innerHTML = bloc.innerHTML + "<br> Ajoutons une ligne supplémentaire"
+        }
+      </script>
+  </head>
+  <body>
+    <div>
+      Ceci est un bloc de texte
+    </div>
+    <br>
+    <button onclick="manipuler()">Modifier le bloc de texte</button>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+      <script>
+          function getNameFromForm(){
+              //Récupération de la valeur du formulaire
+              let fieldValue = document.monForm.nom.value
+              
+              //Récupération de l'élément de réponse
+              let responseField = document.querySelector("span")
+              //Insertion de la valeur dans le texte du l'élément réponse
+              responseField.innerText = fieldValue
+          }
+      </script>
+  </head>
+  <body>
+    <form name="monForm">
+        <label for="nom">Nom : </label>
+        <input name="nom" id="nom" />
+        <button type="button" onclick="getNameFromForm();">Soumettre</button>
+    </form>
+    <div>
+      <label>La valeur du champs est : <span></span></label>
+    </div>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+<head>
+	<title>Exemple de getElementById</title>
+	<script>
+	  function executer(){
+  		// Récupère l'élément avec l'ID "titre"
+  		const titre = document.getElementById("titre");
+  		// Modifie le contenu de l'élément
+  		titre.textContent = "Nouveau titre de la page";
+	  }
+	</script>
+</head>
+<body>
+	<h1 id="titre">Titre de la page</h1>
+	<p>Contenu de la page</p>
+	
+	<button onclick="executer()">Exécuter l'exemple</button>
+</body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+  	<title>Exemple de getElementByTagName</title>
+  </head>
+  <body>
+  	<h1>Titre de la page</h1>
+  	<p>Paragraphe 1</p>
+  	<p>Paragraphe 2</p>
+  
+    <button onclick="executer()">Lancer l'exemple</button>
+  	<script>
+    	function executer(){
+    	  // Récupère tous les éléments de balise "p" dans le document
+    		const tousLesParagraphes = document.getElementsByTagName("p");
+    
+    		// Modifie le contenu de chaque paragraphe par ordre 
+    		// dans le flux de la page
+    		for (let i = 0; i < tousLesParagraphes.length; i++) {
+    			tousLesParagraphes[i].textContent = "Nouveau contenu du paragraphe " + (i+1);
+    		}
+    	}
+  	</script>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <style>
+      main{
+        display:flex;
+        gap:50px;
+      }
+      
+      div{
+        width:100px;
+        height:100px;
+        aspect-ratio: 1;
+      }
+      .rouge{
+        background: #FF0000;
+      }
+      
+      .bleu{
+        background: #0000FF;
+      }
+    </style>
+    <script>
+      function executer(){
+        // sélectionne tous les éléments de la classe "rouge"
+        const elements = document.querySelectorAll(".rouge");
+        
+        // ajoute la classe "bleu" à chaque élément
+        elements.forEach((element) => {
+          //toggle permet d'ajouter/retirer la classe de la liste
+          //ajouter si elle n'existe pas dans la liste
+          //retirer si elle est déjà présente dans la liste 
+          element.classList.toggle("bleu");
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="rouge"></div>
+      <div class="rouge"></div>
+      <div class="rouge"></div>
+    </main>
+    <br>
+    <button onclick="executer()">Exécuter le code</button>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <title>Exercice Javascript</title>
+    <script>
+      //Mettez votre script ici
+        
+    </script>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    
+    <script>
+      //Ou mettez votre script ici
+      //Choisissez sagement
+      const title = document.getElementById("title");
+        title.innerText = "Ceci est le titre de ma page"
+    </script>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <title>Exercice Javascript</title>
+  </head>
+  <body>
+     <form name="user">
+      <label>Nom de l'utilisateur </label>
+      <input name="nom"> <br>
+      
+      <label>Prénom de l'utilisateur </label>
+      <input name="prenom"> <br>
+      
+      <label>Email de l'utilisateur </label>
+      <input name="email"> <br>
+      
+      
+      <button type="button" onclick="traiterFormulaire()">Traiter</button>
+    </form>
+    
+    <script>
+      function traiterFormulaire(){
+        const nom = document.user.nom.value
+        const prenom = document.user.prenom.value
+        const email = document.user.email.value
+        
+        let sortie = `Nom encodé : ${nom}<br>`
+        sortie += `Prénom encodé : ${prenom}<br>`
+        sortie += `Email encodée : ${email}<br>`
+        
+        document.write(sortie)
+      }
+    </script>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <title>Exercice Javascript</title>
+    <style>
+      div{
+        margin:10px;
+        width:90px;
+        height:50px;
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Bloc 1</div>
+    <div>Bloc 2</div>
+    <div>Bloc 3</div>
+    <div>Bloc 4</div>
+    <div>Bloc 5</div>
+    
+    <script>
+      
+      //On récupère tous les div de la page
+      const divs = document.querySelectorAll("div")
+      
+      //On parcours tous les divs en respectant les règles des tableaux
+      for(let i=0; i < divs.length; i++){
+          //Si on est sur le bloc 1,3 ou 5 on change la couleur 
+          if(i==0 || i==2 || i==4) divs[i].style.backgroundColor = "pink"  
+      }
+      
+    </script>
+  </body>
+</html>
+
+<!------------------------------------------------------------------------------>
+
+<html>
+  <head>
+    <title>Exercice Javascript</title>
+    <script>
+      //Mettez votre script ici
+    </script>
+  </head>
+  <body>
+    <form name="calculette">
+      <input name="operande1"> + <input name="operande2"> = <span></span>
+      
+      <br><br>
+      
+      <button type="button" onclick="calculer()">Calculer</button>
+    </form>
+    
+    <script>
+      function calculer(){
+        const nb1 = Number(document.calculette.operande1.value)
+        const nb2 = Number(document.calculette.operande2.value)
+        
+        const span = document.querySelector("span")
+        
+        if(isNaN(nb1) || isNaN(nb2)) span.innerText = "Erreur, calcul impossible"
+        else span.innerText = nb1 + nb2
+      }
+    </script>
+  </body>
+</html>
