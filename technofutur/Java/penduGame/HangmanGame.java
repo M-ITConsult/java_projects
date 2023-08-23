@@ -5,11 +5,9 @@ import java.util.*;
 
 public class HangmanGame {
     private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\categories";
-    private Map<String, List<String>> categories = new HashMap<>();
+    private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
-
-
 
     public void readCategoriesFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(CATEGORIES_FILE))) {
