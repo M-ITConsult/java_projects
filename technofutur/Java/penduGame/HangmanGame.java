@@ -1,7 +1,6 @@
 package technofutur.Java.penduGame;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class HangmanGame {
