@@ -1,10 +1,11 @@
 package technofutur.Java.penduGame;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 
 public class HangmanGame {
-    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\categories";
+    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\";
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
@@ -179,10 +180,20 @@ public class HangmanGame {
     }
     // Create file with content ex: Animals:pig,cow,bird...
     public void createFile(String fileName, String content){
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
-            writer.write(content);
-            System.out.printf("File created: %s", fileName);
-        } catch (IOException e) {
+        try {
+            String sourceFilePath = HangmanGame.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+            String classDir = new File(sourceFilePath).getParent();
+
+            String filePath = classDir + File.separator + fileName;
+
+            try (PrintWriter writer = new PrintWriter(filePath)) {
+                writer.write(content);
+                System.out.printf("File created: %s", filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
