@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class HangmanGame {
-    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\";
-    private static final String DEFAULT_CATEGORY_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\categories";
+    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
+    private static final String DEFAULT_CATEGORY_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
@@ -26,6 +26,7 @@ public class HangmanGame {
         }
     } catch(IOException e) {
         e.printStackTrace();
+        System.out.println("Error reading categories file.");
         }
     }
     // Choose a category
@@ -44,21 +45,35 @@ public class HangmanGame {
                 System.exit(1);
             }
         }
-
+    // Choose a file
     public void chooseFile() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the name of the category file:");
-        String categoryFileName = scanner.nextLine();
+        File folder = new File(CATEGORIES_FILE);
+        File[] files = folder.listFiles();
 
-        if (categoryFileName.isEmpty()) {
-            System.out.println("No file name provided. Using default category.");
-            categoryFileName = DEFAULT_CATEGORY_FILE;
+        System.out.println("Available category files:");
+
+        if (files != null && files.length > 0) {
+            for (int i = 0; i < files.length; i++) {
+                System.out.println((i + 1) + ". " + files[i].getName());
+            }
+
+            System.out.print("Enter the number of the category file: ");
+            int choice = scanner.nextInt();
+
+            if (choice >= 1 && choice <= files.length) {
+                String categoryFileName = files[choice - 1].getName();
+                readWordsFromFile(categoryFileName);
+            } else {
+                System.out.println("Invalid choice. Using default category.");
+                readWordsFromFile(DEFAULT_CATEGORY_FILE);
+            }
+        } else {
+            System.out.println("No category files found. Using default category.");
+            readWordsFromFile(DEFAULT_CATEGORY_FILE);
         }
-
-        readWordsFromFile(categoryFileName);
     }
-
     // Read words from a category
     public void readWordsFromFile(String categoryFileName) {
 //        words = categories.get(selectedCategory);
