@@ -5,6 +5,7 @@ import java.util.*;
 
 public class HangmanGame {
     private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\";
+    private static final String DEFAULT_CATEGORY_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\categories";
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
@@ -30,23 +31,60 @@ public class HangmanGame {
     // Choose a category
     public void chooseCategory() {
         Scanner scanner = new Scanner(System.in);
+            System.out.println("Available categories: ");
+            for (String category : categories.keySet()) {
+                System.out.println(category);
+            }
 
-        System.out.println("Available categories: ");
-        for (String category : categories.keySet()) {
-            System.out.println(category);
+            System.out.print("Choose a category: ");
+            selectedCategory = scanner.nextLine();
+
+            if (!categories.containsKey(selectedCategory)) {
+                System.out.println("Invalid category. Exciting.");
+                System.exit(1);
+            }
         }
 
-        System.out.print("Choose a category: ");
-        selectedCategory = scanner.nextLine();
+    public void chooseFile() {
+        Scanner scanner = new Scanner(System.in);
 
-        if (!categories.containsKey(selectedCategory)) {
-            System.out.println("Invalid category. Exciting.");
-            System.exit(1);
+        System.out.println("Enter the name of the category file:");
+        String categoryFileName = scanner.nextLine();
+
+        if (categoryFileName.isEmpty()) {
+            System.out.println("No file name provided. Using default category.");
+            categoryFileName = DEFAULT_CATEGORY_FILE;
         }
+
+        readWordsFromFile(categoryFileName);
     }
+
     // Read words from a category
-    public void readWordsFromFile() {
-        words = categories.get(selectedCategory);
+    public void readWordsFromFile(String categoryFileName) {
+//        words = categories.get(selectedCategory);
+        try {
+            // Construct the full file path
+            String filePath = CATEGORIES_FILE + categoryFileName;
+
+            // Read words from the specified file and populate the 'words' list
+            // Implement your file reading logic here
+
+            // For example, using a Scanner to read each word from the file
+            Scanner scanner = new Scanner(new File(filePath));
+            words = new ArrayList<>();
+            while (scanner.hasNextLine()) {
+                String word = scanner.nextLine().trim();
+                words.add(word);
+            }
+
+            // Close the scanner
+            scanner.close();
+
+            System.out.println("Words loaded from file: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            words = new ArrayList<>(); // Fallback if reading fails
+        }
     }
     // The game
     public void playHangman() {
@@ -187,7 +225,7 @@ public class HangmanGame {
 
             try (PrintWriter writer = new PrintWriter(filePath)) {
                 writer.write(content);
-                System.out.printf("File created: %s", filePath);
+                System.out.printf("File created: %s\n", filePath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -234,7 +272,7 @@ public class HangmanGame {
             choice = scanner.nextLine();
 
             switch (choice) {
-                case "1" -> {readCategoriesFromFile();chooseCategory();readWordsFromFile();playHangman();}
+                case "1" -> {chooseFile();readCategoriesFromFile();chooseCategory();playHangman();}
                 case "2" -> {readCategoriesFromFile();chooseCategory();modifyContent();}
                 case "3" -> createCategory();
                 case "4" -> {readCategoriesFromFile();deleteCategory();}
@@ -250,6 +288,7 @@ public class HangmanGame {
             }
         } while (true);
     }
+
     // Delete a category
     public void deleteCategory() {
         Scanner scanner = new Scanner(System.in);
