@@ -198,7 +198,7 @@ public class HangmanGame {
     }
     // Delete file
     public void deleteFile(String fileName) {
-        File file = new File(fileName);
+        File file = new File("C:\\java_projects\\technofutur\\Java\\penduGame\\");
         if (file.exists()) {
             if (file.delete()) {
                 System.out.printf("File deleted: %s", fileName);
