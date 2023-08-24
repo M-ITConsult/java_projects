@@ -181,7 +181,7 @@ public class HangmanGame {
     // Create file with content ex: Animals:pig,cow,bird...
     public void createFile(String fileName, String content){
         try {
-            String sourceFilePath = HangmanGame.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+            String sourceFilePath = "C:\\java_projects\\technofutur\\Java\\penduGame\\.";
             String classDir = new File(sourceFilePath).getParent();
 
             String filePath = classDir + File.separator + fileName;
