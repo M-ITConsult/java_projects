@@ -9,6 +9,7 @@ public class HangmanGame {
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
 
+
     public void readCategoriesFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(CATEGORIES_FILE))) {
         String line;
@@ -19,7 +20,7 @@ public class HangmanGame {
                 String[] words = parts[1].split(",");
                 categories.put(category, Arrays.asList(words));
             } else {
-                System.out.println("Malformed line in categories file: " + line);
+                System.out.printf("Malformed line in categories file: %s", line);
             }
         }
     } catch(IOException e) {
@@ -58,8 +59,8 @@ public class HangmanGame {
             StringBuilder guessedWord = new StringBuilder("_".repeat(selectedWord.length()));
 
             while (attempts > 0 && guessedWord.toString().contains("_")) {
-                System.out.println("Word: " + guessedWord);
-                System.out.println("Attempts left: " + attempts);
+                System.out.printf("Word: %s\n", guessedWord);
+                System.out.printf("Attempts left: %s\n", attempts);
 
                 System.out.println("Guess a letter: ");
                 char guess = scanner.nextLine().charAt(0);
@@ -78,18 +79,18 @@ public class HangmanGame {
                 }
             }
 
-            if (guessedWord.toString().equals(selectedWord)) {
-                System.out.printf("Congratulations! You guessed the word: %s ", selectedWord);
-            } else {
-                System.out.printf("Sorry, you're out of attempts. The word was: %s ", selectedWord);
-            }
+                if (guessedWord.toString().equals(selectedWord)) {
+                    System.out.printf("Congratulations! You guessed the word: %s ", selectedWord);
+                } else {
+                    System.out.printf("Sorry, you're out of attempts. The word was: %s ", selectedWord);
+                }
 
-            System.out.print("Play again? (yes/no): ");
-            playAgain = scanner.nextLine();
-        } while (playAgain.equalsIgnoreCase("yes"));
+                System.out.print("Play again? (yes/no): ");
+                playAgain = scanner.nextLine();
+            } while (playAgain.equalsIgnoreCase("yes"));
 
-        System.out.println("Thanks for playing!");
-    }
+            System.out.println("Thanks for playing!");
+        }
 
     public void addWordToCategory(String newWord) {
         if (categories.containsKey(selectedCategory)) {
