@@ -177,6 +177,28 @@ public class HangmanGame {
             System.out.println("Invalid choice.");
         }
     }
+    // Create file with content ex: Animals:pig,cow,bird...
+    public void createFile(String fileName, String content){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+            writer.write(content);
+            System.out.printf("File created: %s", fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    // Delete file
+    public void deleteFile(String fileName) {
+        File file = new File(fileName);
+        if (file.exists()) {
+            if (file.delete()) {
+                System.out.printf("File deleted: %s", fileName);
+            } else {
+                System.out.println("Failed to delete the file");
+            }
+        } else {
+            System.out.println("File not found");
+        }
+    }
     // The menu
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -189,7 +211,9 @@ public class HangmanGame {
             System.out.println("2. Modify Content");
             System.out.println("3. Create Category");
             System.out.println("4. Delete Category");
-            System.out.println("5. Exit");
+            System.out.println("5. Create File");
+            System.out.println("6. Delete File");
+            System.out.println("7. Exit");
             System.out.println("Enter your choice: ");
             choice = scanner.nextLine();
 
@@ -198,7 +222,11 @@ public class HangmanGame {
                 case "2" -> {readCategoriesFromFile();chooseCategory();modifyContent();}
                 case "3" -> createCategory();
                 case "4" -> {readCategoriesFromFile();deleteCategory();}
-                case "5" -> {
+                case "5" -> {System.out.print("Enter the file name: ");String filName = scanner.nextLine();
+                System.out.print("Enter the content: "); String content = scanner.nextLine(); createFile(filName, content);}
+                case "6" -> {System.out.print("Enter the file name to delete: ");String fileToDelete = scanner.nextLine();
+                deleteFile(fileToDelete);}
+                case "7" -> {
                     System.out.println("Goodbye!");
                     System.exit(0);
                 }
