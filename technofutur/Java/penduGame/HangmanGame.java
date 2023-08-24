@@ -198,15 +198,21 @@ public class HangmanGame {
     }
     // Delete file
     public void deleteFile(String fileName) {
-        File file = new File("C:\\java_projects\\technofutur\\Java\\penduGame\\");
-        if (file.exists()) {
-            if (file.delete()) {
-                System.out.printf("File deleted: %s", fileName);
+        File file = new File("C:\\java_projects\\technofutur\\Java\\penduGame\\.");
+        try {
+            if (file.exists()) {
+                if (file.delete()) {
+                    System.out.printf("File deleted: %s", fileName);
+                } else {
+                    System.out.println("Failed to delete the file");
+                }
             } else {
-                System.out.println("Failed to delete the file");
+                System.out.println("File not found");
             }
-        } else {
-            System.out.println("File not found");
+        } catch (SecurityException e) {
+            System.out.printf("Security exception: %s", e.getMessage());
+        } catch (Exception e) {
+            System.out.printf("An error occured: %s", e.getMessage());
         }
     }
     // The menu
