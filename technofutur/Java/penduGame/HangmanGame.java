@@ -9,7 +9,7 @@ public class HangmanGame {
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
 
-
+    // Read categories
     public void readCategoriesFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(CATEGORIES_FILE))) {
         String line;
@@ -27,7 +27,7 @@ public class HangmanGame {
         e.printStackTrace();
         }
     }
-
+    // Choose a category
     public void chooseCategory() {
         Scanner scanner = new Scanner(System.in);
 
@@ -44,10 +44,11 @@ public class HangmanGame {
             System.exit(1);
         }
     }
+    // Read words from a category
     public void readWordsFromFile() {
         words = categories.get(selectedCategory);
     }
-
+    // The game
     public void playHangman() {
         Scanner scanner = new Scanner(System.in);
 
@@ -91,7 +92,7 @@ public class HangmanGame {
 
             System.out.println("Thanks for playing!");
         }
-
+    // Add word to a category
     public void addWordToCategory(String newWord) {
         if (categories.containsKey(selectedCategory)) {
             List<String> categoryWords = new ArrayList<>(categories.get(selectedCategory));
@@ -103,7 +104,7 @@ public class HangmanGame {
             System.out.println("Category not found.");
         }
     }
-
+    // Create a category
     public void createCategory() {
         Scanner scanner = new Scanner(System.in);
 
@@ -118,6 +119,7 @@ public class HangmanGame {
             System.out.println("Category already exists.");
         }
     }
+    // Update categories file
     public void updateCategoriesFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CATEGORIES_FILE))) {
             for (String category : categories.keySet()) {
@@ -130,7 +132,7 @@ public class HangmanGame {
             e.printStackTrace();
         }
     }
-
+    // Delete word from a category
     public void deleteWordFromCategory(String wordToDelete) {
         if (categories.containsKey(selectedCategory)) {
             List<String> categoryWords = new ArrayList<>(categories.get(selectedCategory));
@@ -145,6 +147,7 @@ public class HangmanGame {
             System.out.println("Category not found.");
         }
     }
+    // Modify the content
     public void modifyContent() {
         Scanner scanner = new Scanner(System.in);
 
@@ -174,7 +177,7 @@ public class HangmanGame {
             System.out.println("Invalid choice.");
         }
     }
-
+    // The menu
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
 
@@ -203,6 +206,7 @@ public class HangmanGame {
             }
         } while (true);
     }
+    // Delete a category
     public void deleteCategory() {
         Scanner scanner = new Scanner(System.in);
 
