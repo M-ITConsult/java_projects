@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class HangmanGame {
-    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
-    private static final String DEFAULT_CATEGORY_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
+    private static final String CATEGORIES_FILE = "C:/java_projects/technofutur/Java/penduGame/Files/";
+    private static final String DEFAULT_CATEGORY_FILE = "C:/java_projects/technofutur/Java/penduGame/Files/";
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
@@ -251,7 +251,7 @@ public class HangmanGame {
     }
     // Delete file
     public void deleteFile(String fileName) {
-        File file = new File("C:\\java_projects\\technofutur\\Java\\penduGame\\.");
+        File file = new File("C:/java_projects/technofutur/Java/penduGame/Files/" + fileName);
         try {
             if (file.exists()) {
                 if (file.delete()) {
