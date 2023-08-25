@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class HangmanGame {
-    private static final String CATEGORIES_FILE = "C:/java_projects/technofutur/Java/penduGame/Files/";
-    private static final String DEFAULT_CATEGORY_FILE = "C:/java_projects/technofutur/Java/penduGame/Files/";
+    private static final String CATEGORIES_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
+    private static final String DEFAULT_CATEGORY_FILE = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\";
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
@@ -21,7 +21,7 @@ public class HangmanGame {
                 String[] words = parts[1].split(",");
                 categories.put(category, Arrays.asList(words));
             } else {
-                System.out.printf("Malformed line in categories file: %s", line);
+                System.out.printf("Malformed line in categories file: %d", line);
             }
         }
     } catch(IOException e) {
@@ -32,19 +32,19 @@ public class HangmanGame {
     // Choose a category
     public void chooseCategory() {
         Scanner scanner = new Scanner(System.in);
-            System.out.println("Available categories: ");
-            for (String category : categories.keySet()) {
-                System.out.println(category);
-            }
-
-            System.out.print("Choose a category: ");
-            selectedCategory = scanner.nextLine();
-
-            if (!categories.containsKey(selectedCategory)) {
-                System.out.println("Invalid category. Exciting.");
-                System.exit(1);
-            }
+        System.out.println("Available categories: ");
+        for (String category : categories.keySet()) {
+            System.out.println(category);
         }
+
+        System.out.print("Choose a category: ");
+        selectedCategory = scanner.nextLine();
+
+        if (!categories.containsKey(selectedCategory)) {
+            System.out.println("Invalid category. Exciting.");
+            System.exit(1);
+        }
+    }
     // Choose a file
     public void chooseFile() {
         Scanner scanner = new Scanner(System.in);
@@ -108,6 +108,11 @@ public class HangmanGame {
         System.out.println("The game begin!");
         String playAgain;
         do {
+            if (words.isEmpty()) {
+                System.out.println("No words available to play.");
+                return;
+            }
+
             String selectedWord = words.get(new Random().nextInt(words.size()));
             int attempts = 6;
             StringBuilder guessedWord = new StringBuilder("_".repeat(selectedWord.length()));
@@ -288,8 +293,8 @@ public class HangmanGame {
 
             switch (choice) {
                 case "1" -> {chooseFile();readCategoriesFromFile();chooseCategory();playHangman();}
-                case "2" -> {readCategoriesFromFile();chooseCategory();modifyContent();}
-                case "3" -> createCategory();
+                case "2" -> {chooseFile();readCategoriesFromFile();chooseCategory();modifyContent();}
+                case "3" -> {chooseFile();readCategoriesFromFile();createCategory();}
                 case "4" -> {readCategoriesFromFile();deleteCategory();}
                 case "5" -> {System.out.print("Enter the file name: ");String filName = scanner.nextLine();
                 System.out.print("Enter the content: "); String content = scanner.nextLine(); createFile(filName, content);}
