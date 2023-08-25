@@ -233,7 +233,7 @@ public class HangmanGame {
     // Create file with content ex: Animals:pig,cow,bird...
     public void createFile(String fileName, String content){
         try {
-            String sourceFilePath = "C:\\java_projects\\technofutur\\Java\\penduGame\\.";
+            String sourceFilePath = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\.";
             String classDir = new File(sourceFilePath).getParent();
 
             String filePath = classDir + File.separator + fileName;
