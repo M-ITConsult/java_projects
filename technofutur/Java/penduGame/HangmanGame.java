@@ -1,6 +1,5 @@
 package technofutur.Java.penduGame;
 
-import javax.xml.namespace.QName;
 import java.io.*;
 import java.util.*;
 
@@ -106,6 +105,13 @@ public class HangmanGame {
     public void playHangman() {
         Scanner scanner = new Scanner(System.in);
 
+        List<String> words = categories.get(selectedCategory);
+
+        if (words == null || words.isEmpty()) {
+            System.out.println("No words found for the selected category.");
+            return;
+        }
+
         System.out.println("The game begin!");
         String playAgain;
         do {
@@ -176,6 +182,33 @@ public class HangmanGame {
             System.out.println("New category created.");
         } else {
             System.out.println("Category already exists.");
+        }
+    }
+    // Delete a category
+    public void deleteCategory() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Available categories: ");
+        for (String category : categories.keySet()) {
+            System.out.println(category);
+        }
+        System.out.println("Enter the name of the category to delete: ");
+        String categoryToDelete = scanner.nextLine();
+
+        if (categories.containsKey(categoryToDelete)) {
+            categories.remove(categoryToDelete);
+            updateCategoriesFile();
+
+            File wordsFile = new File(CATEGORIES_FILE, categoryToDelete);
+            if (wordsFile.exists()) {
+                if (wordsFile.delete()) {
+                    System.out.println("Category and associated words file deleted.");
+                } else {
+                    System.out.println("Category deleted. Associated words file not found.");
+                }
+            } else {
+                System.out.println("Category not found.");
+            }
         }
     }
     // Update categories file
@@ -296,7 +329,7 @@ public class HangmanGame {
                 case "1" -> {chooseFile();chooseCategory();playHangman();}
                 case "2" -> {chooseFile();chooseCategory();modifyContent();}
                 case "3" -> {chooseFile();createCategory();}
-                case "4" -> {deleteCategory();}
+                case "4" -> {chooseFile();deleteCategory();}
                 case "5" -> {System.out.print("Enter the file name: ");String filName = scanner.nextLine();
                 System.out.print("Enter the content: "); String content = scanner.nextLine(); createFile(filName, content);}
                 case "6" -> {System.out.print("Enter the file name to delete: ");String fileToDelete = scanner.nextLine();
@@ -309,31 +342,7 @@ public class HangmanGame {
             }
         } while (true);
     }
-    // Delete a category
-    public void deleteCategory() {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Available categories: ");
-        for (String category : categories.keySet()) {
-            System.out.println(category);
-        }
-        System.out.println("Enter the name of the category to delete: ");
-        String categoryToDelete = scanner.nextLine();
-
-        if (categories.containsKey(categoryToDelete)) {
-            categories.remove(categoryToDelete);
-            updateCategoriesFile();
-            File wordsFile = new File(categoryToDelete + " ");
-            if (wordsFile.exists()) {
-                wordsFile.delete();
-                System.out.println("Category and associated words file deleted.");
-            } else {
-                System.out.println("Category deleted. Associated words file not found.");
-            }
-        } else {
-            System.out.println("Category not found.");
-        }
-    }
 
     public static void main(String[] args) {
         HangmanGame game = new HangmanGame();
