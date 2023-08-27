@@ -102,7 +102,6 @@ public class HangmanGame {
             System.exit(1);
         }
     }
-
     // The game
     public void playHangman() {
         Scanner scanner = new Scanner(System.in);
@@ -310,7 +309,6 @@ public class HangmanGame {
             }
         } while (true);
     }
-
     // Delete a category
     public void deleteCategory() {
         Scanner scanner = new Scanner(System.in);
