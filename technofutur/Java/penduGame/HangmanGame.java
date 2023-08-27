@@ -1,5 +1,6 @@
 package technofutur.Java.penduGame;
 
+import javax.xml.namespace.QName;
 import java.io.*;
 import java.util.*;
 
@@ -9,42 +10,6 @@ public class HangmanGame {
     private final Map<String, List<String>> categories = new HashMap<>();
     private List<String> words = new ArrayList<>();
     private String selectedCategory;
-
-    // Read categories
-    public void readCategoriesFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(CATEGORIES_FILE))) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(":");
-            if (parts.length == 2) {
-                String category = parts[0];
-                String[] words = parts[1].split(",");
-                categories.put(category, Arrays.asList(words));
-            } else {
-                System.out.printf("Malformed line in categories file: %d", line);
-            }
-        }
-    } catch(IOException e) {
-        e.printStackTrace();
-        System.out.println("Error reading categories file.");
-        }
-    }
-    // Choose a category
-    public void chooseCategory() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Available categories: ");
-        for (String category : categories.keySet()) {
-            System.out.println(category);
-        }
-
-        System.out.print("Choose a category: ");
-        selectedCategory = scanner.nextLine();
-
-        if (!categories.containsKey(selectedCategory)) {
-            System.out.println("Invalid category. Exciting.");
-            System.exit(1);
-        }
-    }
     // Choose a file
     public void chooseFile() {
         Scanner scanner = new Scanner(System.in);
@@ -77,9 +42,10 @@ public class HangmanGame {
     // Read words from a category
     public void readWordsFromFile(String categoryFileName) {
 //        words = categories.get(selectedCategory);
+        String filePath = null;
         try {
             // Construct the full file path
-            String filePath = CATEGORIES_FILE + categoryFileName;
+            filePath = CATEGORIES_FILE + categoryFileName;
 
             // Read words from the specified file and populate the 'words' list
             // Implement your file reading logic here
@@ -88,7 +54,7 @@ public class HangmanGame {
             Scanner scanner = new Scanner(new File(filePath));
             words = new ArrayList<>();
             while (scanner.hasNextLine()) {
-                String word = scanner.nextLine().trim();
+                String word = scanner.nextLine();
                 words.add(word);
             }
 
@@ -100,7 +66,43 @@ public class HangmanGame {
             e.printStackTrace();
             words = new ArrayList<>(); // Fallback if reading fails
         }
+        readCategoriesFromFile(categoryFileName);
     }
+    // Read categories
+    public void readCategoriesFromFile(String categoryFileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CATEGORIES_FILE + categoryFileName))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(":");
+            if (parts.length == 2) {
+                String category = parts[0];
+                String[] words = parts[1].split(",");
+                categories.put(category, Arrays.asList(words));
+            } else {
+                System.out.printf("Malformed line in categories file: %s", line);
+            }
+        }
+    } catch(IOException e) {
+        System.out.printf("Error reading categories file: %s\n", e.getMessage());
+        }
+    }
+    // Choose a category
+    public void chooseCategory() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Available categories: ");
+        for (String category : categories.keySet()) {
+            System.out.println(category);
+        }
+
+        System.out.print("Choose a category: ");
+        selectedCategory = scanner.nextLine();
+
+        if (!categories.containsKey(selectedCategory)) {
+            System.out.println("Invalid category. Exciting.");
+            System.exit(1);
+        }
+    }
+
     // The game
     public void playHangman() {
         Scanner scanner = new Scanner(System.in);
@@ -292,10 +294,10 @@ public class HangmanGame {
             choice = scanner.nextLine();
 
             switch (choice) {
-                case "1" -> {chooseFile();readCategoriesFromFile();chooseCategory();playHangman();}
-                case "2" -> {chooseFile();readCategoriesFromFile();chooseCategory();modifyContent();}
-                case "3" -> {chooseFile();readCategoriesFromFile();createCategory();}
-                case "4" -> {readCategoriesFromFile();deleteCategory();}
+                case "1" -> {chooseFile();chooseCategory();playHangman();}
+                case "2" -> {chooseFile();chooseCategory();modifyContent();}
+                case "3" -> {chooseFile();createCategory();}
+                case "4" -> {deleteCategory();}
                 case "5" -> {System.out.print("Enter the file name: ");String filName = scanner.nextLine();
                 System.out.print("Enter the content: "); String content = scanner.nextLine(); createFile(filName, content);}
                 case "6" -> {System.out.print("Enter the file name to delete: ");String fileToDelete = scanner.nextLine();
