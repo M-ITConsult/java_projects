@@ -38,17 +38,50 @@ public class HangmanGame {
             System.out.println("Error reading categories file.");
         }
     }
+    private List<String> readBackupWords(String category) {
+        List<String> backedUpWords = new ArrayList<>();
+        Path backupFilePath = Paths.get("C:/java_projects/technofutur/Java/penduGame/Files/backup/" + category + "_used_words");
 
-    public void playHangman() {
+        try {
+            backedUpWords = Files.readAllLines(backupFilePath);
+        } catch (IOException e) {
+            // Handle the exception if necessary
+        }
+
+        return backedUpWords;
+    }
+
+    public void chooseCategory() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Available categories: ");
+        List<String> availableCategories = new ArrayList<>();
+
         for (String category : categories.keySet()) {
-            System.out.println(category);
-        }
+            List<String> words = categories.get(category);
+            List<String> backedUpWords = readBackupWords(category);
+
+            // Check if any words in the category are not backed up
+            boolean anyWordNotBackedUp = words.stream().anyMatch(word -> !backedUpWords.contains(word));
+
+            if (anyWordNotBackedUp) {
+                availableCategories.add(category);
+                System.out.println(category);
+            }
+           }
 
         System.out.print("Choose a category: ");
         selectedCategory = scanner.nextLine();
+
+        if (!availableCategories.contains(selectedCategory)) {
+            System.out.println("Invalid category or all words in this category have been used.");
+            System.exit(1);
+        }
+    }
+    public void playHangman() {
+        Scanner scanner = new Scanner(System.in);
+
+        chooseCategory();
 
         List<String> wordsInCategory = categories.get(selectedCategory);
         if (wordsInCategory == null || wordsInCategory.isEmpty()) {
@@ -243,19 +276,33 @@ public class HangmanGame {
             System.out.println("Error updating categories file.");
         }
     }
+    public void cleanBackupFolder() {
+        Path backupFolder = Paths.get(BACKUP_FOLDER_PATH);
+
+        try {
+            Files.list(backupFolder)
+                    .filter(path -> path.getFileName().toString().endsWith("_used_words"))
+                    .forEach(path -> {
+                        try {
+                            Files.delete(path);
+                            System.out.printf("Delete: %s", path);
+                        } catch (IOException e) {
+                            System.out.printf("Failed to delete: %s", path);
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            System.out.println("Error listing files in backup folder.");
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         HangmanGame game = new HangmanGame();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Menu:");
-            System.out.println("1. Play Hangman");
-            System.out.println("2. Modify Category");
-            System.out.println("3. Create Category");
-            System.out.println("4. Delete Category");
-            System.out.println("5. Quit");
-            System.out.print("Enter your choice: ");
+            System.out.println("Menu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -263,7 +310,8 @@ public class HangmanGame {
                 case "2" -> game.modifyContent();
                 case "3" -> game.createCategory();
                 case "4" -> game.deleteCategory();
-                case "5" -> {
+                case "5" -> game.cleanBackupFolder();
+                case "6" -> {
                     System.out.println("Goodbye!");
                     System.exit(0);
                 }
