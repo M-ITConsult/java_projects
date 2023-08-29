@@ -1,14 +1,18 @@
 package technofutur.Java.penduGame;
 
 import java.io.*;
+import java.nio.file.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class HangmanGame {
 
     private static final String FILE_PATH = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\categories";
-    private static final String BACKUP_FOLDER_PATH = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\backup";
+    private static final String BACKUP_FOLDER_PATH = "C:\\java_projects\\technofutur\\Java\\penduGame\\Files\\backup\\";
 
-    private Map<String, List<String>> categories;
+    private final Map<String, List<String>> categories;
+    private List<String> usedWords = new ArrayList<>();
     private String selectedCategory;
 
     public HangmanGame() {
@@ -102,6 +106,26 @@ public class HangmanGame {
         if (attempts == 0) {
             displayHangman(attempts);
             System.out.println("Sorry, you've run out of attempts. The word was: " + wordToGuess);
+        }
+
+        usedWords.add(wordToGuess);
+        endGame();
+    }
+
+    public void endGame() {
+        backupUsedWords(usedWords);
+    }
+    public void backupUsedWords(List<String> usedWords) {
+        String backupFileName = selectedCategory + "_used_words"; // Change the filename as needed
+        Path backupFilePath = Paths.get(BACKUP_FOLDER_PATH, backupFileName);
+
+        try {
+            Files.createDirectories(backupFilePath.getParent()); // Create the backup folder if it doesn't exist
+            Files.write(backupFilePath, usedWords); // Write used words to the backup file
+            System.out.println("Used words backed up successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to backup used words.");
         }
     }
 
@@ -235,24 +259,15 @@ public class HangmanGame {
             String choice = scanner.nextLine();
 
             switch (choice) {
-                case "1":
-                    game.playHangman();
-                    break;
-                case "2":
-                    game.modifyContent();
-                    break;
-                case "3":
-                    game.createCategory();
-                    break;
-                case "4":
-                    game.deleteCategory();
-                    break;
-                case "5":
+                case "1" -> game.playHangman();
+                case "2" -> game.modifyContent();
+                case "3" -> game.createCategory();
+                case "4" -> game.deleteCategory();
+                case "5" -> {
                     System.out.println("Goodbye!");
                     System.exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid choice. Try again.");
+                }
+                default -> System.out.println("Invalid choice. Try again.");
             }
         }
     }
