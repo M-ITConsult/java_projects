@@ -15,6 +15,89 @@ public class HangmanGame {
     private List<String> usedWords = new ArrayList<>();
     private String selectedCategory;
 
+    String[] hangmanStages = {
+            """
+               ------
+               |    |
+               |    X
+               | -- | --
+               |    |
+               |   | |
+               |   | |
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    0
+               | -- | --
+               |    |
+               |   |
+               |   |
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    0
+               | -- | --
+               |    |
+               |   
+               |   
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    0
+               | -- | 
+               |    |
+               |   
+               |   
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    0
+               |    | 
+               |    |
+               |   
+               |   
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    0
+               | 
+               |    
+               |   
+               |   
+               |
+               --------""",
+            """
+               ------
+               |    |
+               |    
+               | 
+               |    
+               |   
+               |   
+               |
+               --------""",
+            """
+               ------
+               |    
+               |    
+               | 
+               |    
+               |   
+               |   
+               |
+               --------""",
+    };
+
     public HangmanGame() {
         categories = new HashMap<>();
         loadCategoriesFromFile();
@@ -92,7 +175,7 @@ public class HangmanGame {
         Random random = new Random();
         String wordToGuess = wordsInCategory.get(random.nextInt(wordsInCategory.size()));
 
-        int attempts = 6;
+        int attempts = 7;
         Set<Character> usedLetters = new HashSet<>();
         char[] guessedWord = new char[wordToGuess.length()];
         Arrays.fill(guessedWord, '_');
@@ -164,6 +247,11 @@ public class HangmanGame {
 
     private void displayHangman(int attempts) {
         // Display hangman graphics based on attempts left
+        if (attempts >= 0 && attempts < hangmanStages.length) {
+            System.out.println(hangmanStages[attempts]);
+        } else {
+            System.out.println("Invalid hangman stage.");
+        }
     }
 
     private void displayGuessedWord(char[] guessedWord) {
@@ -302,7 +390,7 @@ public class HangmanGame {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Menu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
+            System.out.println("\nMenu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
