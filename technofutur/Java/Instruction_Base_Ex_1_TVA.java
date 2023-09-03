@@ -4,9 +4,9 @@ public class Instruction_Base_Ex_1_TVA {
 
         public static void main(String[] args) {
             final double TAUX_TVA = 21;
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Veuillez entrez le prix HTVA: ");
-            double prixHTVA = scanner.nextDouble();
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Veuillez entrez le prix HTVA: ");
+            double prixHTVA = sc.nextDouble();
             double prixTVAC = prixHTVA * (1 + (TAUX_TVA / 100));
             double prixTVA = prixHTVA * TAUX_TVA / 100;
             // Format du System.out avec System.out.printf %.2f pour deux chiffres après la virgule>
@@ -16,7 +16,5 @@ public class Instruction_Base_Ex_1_TVA {
 //            System.out.println("Le prix HTVA est de " + prixHTVA +"€");
 //            System.out.println("la TVA est de " + TAUX_TVA +"%");
 //            System.out.println("Voici le prix TVAC " + prixTVAC+"€");
-
-            scanner.close();
         }
     }

@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 public class FiveAlgorithm {
 
@@ -48,14 +48,14 @@ public class FiveAlgorithm {
 //        }
 
         // Algorithm 5
-        int a = 10;
-        int b = 0;
-
-        while (a<10) {
-            System.out.println(a);
-            System.out.println(b);
-            a++;
-            b++;
-        }
+//        int a = 10;
+//        int b = 0;
+//
+//        while (a < 10) {
+//            System.out.println(a);
+//            System.out.println(b);
+//            a++;
+//            b++;
+//        }
     }
 }

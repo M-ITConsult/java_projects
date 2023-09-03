@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 import java.util.Scanner;
 
@@ -11,9 +11,9 @@ public class multiplication_table_for {
         int nombre = 0;
 
         do {
-            System.out.println("Veuillez entrer un nombre positif et non nul: ");
+            System.out.print("Veuillez entrer un nombre positif et non nul: ");
             while (!scanner.hasNextInt()) {
-                    System.out.println("Erreur: Veuillez entrer un nombre entier positif et non nul.");
+                    System.out.print("Erreur: Veuillez entrer un nombre entier positif et non nul.");
                     scanner.next();
                 }
             nombre = scanner.nextInt();

@@ -105,8 +105,8 @@ public class Ex_recap_2 {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
         String chiffreAffaireFormate = decimalFormat.format(chiffreAffaireTotal);
 
-        System.out.println("Chiffre d'affaire total de la journée : " + chiffreAffaireFormate + "€");
-        System.out.println("Nombre de clients passés : " + nombreClients);
+        System.out.printf("Chiffre d'affaire total de la journée : %s€\n", chiffreAffaireFormate);
+        System.out.printf("Nombre de clients passés : %s", nombreClients);
         
         scanner.close();
     }

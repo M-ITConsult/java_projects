@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 import java.util.Random;
 import java.util.Scanner;

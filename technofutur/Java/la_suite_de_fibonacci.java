@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 public class la_suite_de_fibonacci {
     public static void main(String[] args) {

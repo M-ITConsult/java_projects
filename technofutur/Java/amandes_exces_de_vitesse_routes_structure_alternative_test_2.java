@@ -1,4 +1,4 @@
-package technofutur;
+package technofutur.Java;
 
 public class amandes_exces_de_vitesse_routes_structure_alternative_test_2 {
     public static void main(String[] args) {
