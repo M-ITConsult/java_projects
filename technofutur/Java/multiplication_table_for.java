@@ -8,7 +8,7 @@ public class multiplication_table_for {
 
         Scanner scanner = new Scanner(System.in);
 
-        int nombre = 0;
+        int nombre;
 
         do {
             System.out.print("Veuillez entrer un nombre positif et non nul: ");

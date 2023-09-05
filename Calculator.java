@@ -11,32 +11,34 @@ public class Calculator {
         double num2 = scanner.nextDouble();
         
         System.out.print("Enter an operator (+, -, *, /): ");
-        char operator = scanner.next().charAt(0);
+        String operator = scanner.next();
         
         double result;
 
         switch (operator) {
-            case '+' -> {
+            case "+" -> {
                 result = num1 + num2;
-                System.out.println("Result: " + result);
+                System.out.printf("Result: %s",result);
             }
-            case '-' -> {
+            case "-" -> {
                 result = num1 - num2;
-                System.out.println("Result: " + result);
+                System.out.printf("Result: %s",result);
             }
-            case '*' -> {
+            case "*" -> {
                 result = num1 * num2;
-                System.out.println("Result: " + result);
+                System.out.printf("Result: %s",result);
             }
-            case '/' -> {
+            case "/" -> {
                 if (num2 != 0) {
                     result = num1 / num2;
-                    System.out.println("Result: " + result);
+                    System.out.printf("Result: %s", result);
                 } else {
                     System.out.println("Error: Cannot divide by zero");
                 }
             }
+
             default -> System.out.println("Error: Invalid operator");
+
         }
         
         scanner.close();
