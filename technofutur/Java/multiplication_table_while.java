@@ -26,7 +26,7 @@ public class multiplication_table_while {
             }
         }
 
-        System.out.println("Table de multiplication par le nombre " + nombre + " :");
+        System.out.printf("Table de multiplication par le nombre %s:",nombre);
 
         int multiplicateur = 1;
         while (multiplicateur <= 10) {

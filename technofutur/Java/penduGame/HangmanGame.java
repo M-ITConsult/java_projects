@@ -121,6 +121,7 @@ public class HangmanGame {
             System.out.println("Error reading categories file.");
         }
     }
+
     private List<String> readBackupWords(String category) {
         List<String> backedUpWords = new ArrayList<>();
         Path backupFilePath = Paths.get("C:/java_projects/technofutur/Java/penduGame/Files/backup/" + category + "_used_words");
@@ -151,7 +152,7 @@ public class HangmanGame {
                 availableCategories.add(category);
                 System.out.println(category);
             }
-           }
+        }
 
         System.out.print("Choose a category: ");
         selectedCategory = scanner.nextLine();
@@ -161,6 +162,7 @@ public class HangmanGame {
             System.exit(1);
         }
     }
+
     public void playHangman() {
         Scanner scanner = new Scanner(System.in);
 
@@ -231,6 +233,7 @@ public class HangmanGame {
     public void endGame() {
         backupUsedWords(usedWords);
     }
+
     public void backupUsedWords(List<String> usedWords) {
         String backupFileName = selectedCategory + "_used_words"; // Change the filename as needed
         Path backupFilePath = Paths.get(BACKUP_FOLDER_PATH, backupFileName);
@@ -314,7 +317,7 @@ public class HangmanGame {
         categories.put(selectedCategory, wordsInCategory);
         updateCategoriesFile();
         System.out.println("Word added to category.");
-}
+    }
 
     public void deleteWordFromCategory(String wordToDelete) {
         List<String> wordsInCategory = new ArrayList<>(categories.get(selectedCategory));
@@ -364,6 +367,7 @@ public class HangmanGame {
             System.out.println("Error updating categories file.");
         }
     }
+
     public void cleanBackupFolder() {
         Path backupFolder = Paths.get(BACKUP_FOLDER_PATH);
 
@@ -390,7 +394,7 @@ public class HangmanGame {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nMenu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
+            System.out.print("\nMenu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
