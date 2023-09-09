@@ -39,7 +39,7 @@ public class base_TVA {
             Scanner sc = new Scanner(System.in);
 
             while (true) {
-                System.out.println("Menu \n1. Calcul TVA 6%\n2. Calcul TVA 21%\n3. Exit");
+                System.out.println("\nMenu \n1. Calcul TVA 6%\n2. Calcul TVA 21%\n3. Exit");
                 System.out.print("Choix: ");
                 String choice = sc.nextLine();
 
