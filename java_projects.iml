@@ -16,5 +16,18 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="groovy-5.0.0-alpha-1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/poi-src-5.2.3-20220909-5.2.3/poi" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/poi-src-5.2.3-20220909-5.2.3/poi/src/main/java" />
+          <root url="file://$MODULE_DIR$/poi-src-5.2.3-20220909-5.2.3/poi/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

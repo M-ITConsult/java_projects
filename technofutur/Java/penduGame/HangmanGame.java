@@ -404,7 +404,7 @@ public class HangmanGame {
                 case "4" -> game.deleteCategory();
                 case "5" -> game.cleanBackupFolder();
                 case "6" -> {
-                    System.out.println("Goodbye!");
+                    System.out.println("Goodbye!:");
                     System.exit(0);
                 }
                 default -> System.out.println("Invalid choice. Try again.");
