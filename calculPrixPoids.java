@@ -14,7 +14,7 @@ public class calculPrixPoids {
         double poids = sc.nextDouble();
 
         double result = price * kilo / poids;
-        System.out.printf("Voici le prix au kilo de votre article: %.2f€", result);
+        System.out.printf("Voici le prix au kilo de votre article: %.2f€%n", result);
     }
 
     // Pour connaître le prix de l'article en connaissant le prix au kg et le poids de l'article
@@ -28,17 +28,21 @@ public class calculPrixPoids {
         double poids = sc.nextDouble();
 
         double result = priceKg / kilo * poids;
-        System.out.printf("Voici le prix au kilo de votre article: %.2f€", result);
+        System.out.printf("Voici le prix au kilo de votre article: %.2f€%n", result);
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Entez votre choix:\n1. Prix au KG\n2. Prix de l'article");
+        while (true) {
+        System.out.println("\nEntez votre choix:\n1. Prix au KG\n2. Prix de l'article\n3. Exit");
         int choice = sc.nextInt();
-        switch (choice) {
-           case 1 -> prixAuKg();
-           case 2 -> prixPiece();
+
+            switch (choice) {
+                case 1 -> prixAuKg();
+                case 2 -> prixPiece();
+                case 3 -> System.exit(0);
+            }
         }
     }
 }
