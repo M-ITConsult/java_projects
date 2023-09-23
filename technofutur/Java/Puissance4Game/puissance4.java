@@ -8,6 +8,9 @@ public class puissance4 {
     public static void main(String[] args) {
         gameStart();
     }
+    /**
+     @author mitconsult
+     **/
 
     public static class game {
         public static void gameStart() {
@@ -152,9 +155,9 @@ public class puissance4 {
             System.out.println("***********************");
             System.out.println("******GAME OVER********");
             System.out.println("***********************");
-            if(gagnant ==0)
+            if(gagnant == 0)
                         System.out.println("********EQUALITY************");
-            if(gagnant ==1)
+            if(gagnant == 1)
                         System.out.println("********X WIN!!!************");
 
             for(

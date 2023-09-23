@@ -18,6 +18,8 @@ class Produit {
 }
 
 public class Ex_recap_2 {
+    private static String choice;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> produitsAchats = new ArrayList<>();
@@ -51,12 +53,16 @@ public class Ex_recap_2 {
         }
 
         double sommeTotale = 0.0;
-
+    do {
         while (true) {
-            System.out.print("Entrez le numéro de l'article (ou -1 pour terminer) : ");
+            System.out.print("Entrez le numéro de l'article (ou -1 annulé le dernier article) (-2 pour terminer) : ");
             int numeroProduit = scanner.nextInt();
 
             if (numeroProduit == -1) {
+                continue;
+            }
+
+            if (numeroProduit == -2) {
                 break;
             }
 
@@ -92,6 +98,10 @@ public class Ex_recap_2 {
 
         double rendu = montantDonne - sommeTotale;
         System.out.println("Montant à rendre : " + String.format("%.2f", rendu) + "€");
+
+        System.out.print("Avez-vous un autre client? (y/n): ");
+        choice = scanner.next();
+    } while (choice.equalsIgnoreCase("y"));
 
         // Fin de journée - chiffre d'affaires et nombre de clients
         double chiffreAffaireTotal = 0.0;
