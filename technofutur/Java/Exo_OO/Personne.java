@@ -3,11 +3,12 @@ import java.time.LocalDate;
 
 public class Personne {
 
-    private String nom;
-    private String prenom;
-    private LocalDate datenaissance;
+    public Personne(String nom, String prenom, LocalDate dateNaissance) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.datenaissance = dateNaissance;
+    }
 
-    // Guetter and Setter
     public String getNom() {
         return nom;
     }
@@ -31,4 +32,11 @@ public class Personne {
     public void setDatenaissance(LocalDate datenaissance) {
         this.datenaissance = datenaissance;
     }
+
+    private String nom;
+    private String prenom;
+    public LocalDate datenaissance;
+
 }
+
+    // Guetter and Setter

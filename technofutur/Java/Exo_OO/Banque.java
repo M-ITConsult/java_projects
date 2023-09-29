@@ -1,8 +1,13 @@
 package technofutur.Java.Exo_OO;
+import java.util.HashMap;
 
 public class Banque {
-    String name;
-    int compte;
+    public Banque(String name) {
+        this.name = name;
+    }
+
+    private String name;
+    private static HashMap<String, Courant> comptes = new HashMap<>();
 
     public String getName() {
         return name;
@@ -13,18 +18,22 @@ public class Banque {
     }
 
     public int getCompte() {
-        return compte;
+
+        return 0;
     }
 
     public void setCompte(int compte) {
-        this.compte = compte;
-    }
-
-    public void Ajouter(Courant compte) {
 
     }
 
-    public void Supprimer(String Numero){
+    public static void Ajouter(Courant compte) {
+        comptes.put(compte.getNumero(),compte);
+    }
 
+    public void Supprimer(String numero){
+        Courant compte = comptes.get(numero);
+        if(compte != null) {
+            comptes.remove(numero);
+        }
     }
 }

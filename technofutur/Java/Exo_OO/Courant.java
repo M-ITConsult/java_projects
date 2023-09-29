@@ -34,7 +34,6 @@ public class Courant {
 
     public Double getLigneDeCredit() {
         if(ligneDeCredit >= 0) {
-            System.out.println("test");
             return ligneDeCredit;
         } else {
             System.out.println("Veuillez réassayer.");
@@ -43,6 +42,7 @@ public class Courant {
     }
 
     public void setLigneDeCredit(Double ligneDeCredit) {
+
         this.ligneDeCredit = ligneDeCredit;
     }
 
@@ -55,10 +55,23 @@ public class Courant {
     }
 
     public void retrait(double montant) {
-
+            if(montant > 0){
+              if(montant <= solde + ligneDeCredit){
+                  solde -= montant;
+                }
+            }
     }
 
     public void depot(double montant) {
-
+//            if(montant <= 0)
+//                System.out.println("Pas de possibilités de retrait");
+//
+//            if(solde - montant < -ligneDeCredit)
+//                System.out.println("");
+//
+//            solde -= montant;
+        if(montant > 0) {
+            solde += montant;
+        }
     }
 }
