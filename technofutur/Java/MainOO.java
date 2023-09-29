@@ -20,5 +20,6 @@ public class MainOO {
         car1.prix = 100000;
 
         System.out.printf("La voiture de marque %s est %s, à %s places et le prix est de %s€", car1.brand, car1.energy, car1.nbPlace, car1.prix);
+
     }
 }

@@ -12,4 +12,16 @@ public class Cars {
     String energy;
     int nbPlace;
     int prix;
+
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "brand='" + brand + '\'' +
+                ", energy='" + energy + '\'' +
+                ", nbPlace=" + nbPlace +
+                ", prix=" + prix +
+                '}';
+    }
+
+
 }
