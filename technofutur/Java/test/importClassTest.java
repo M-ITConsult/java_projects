@@ -6,6 +6,5 @@ public class importClassTest {
     public static void main(String[] args) {
                 gameTest();
                 gameTest2();
-                gameTest3();
         }
     }

@@ -15,9 +15,4 @@ public class game {
         int d = a * b * c;
         System.out.println(d);
     }
-
-    static void gameTest3() {
-        final int shurgard = 118;
-        final int cambio = 22;
-    }
 }
