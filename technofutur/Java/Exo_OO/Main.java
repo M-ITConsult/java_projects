@@ -1,14 +1,13 @@
 package technofutur.Java.Exo_OO;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Banque banque1 = new Banque("BNP");
-
-        Personne personne1 = new Personne("Test","test1","12/07/2021");
-        Courant compte1 = new Courant("",0.0,0.0,personne1);
+//        Banque banque1 = new Banque("BNP");
+//
+//        Personne personne1 = new Personne("Test","test1","12/07/2021")
+//        Courant compte1 = new Courant("",0.0,0.0,personne1);
 
 
 //        System.out.printf("voici votre compte en détail: %s\n%s\n%s\n de la banque: %s\n Nom: %s\n Prénom: %s\n Date de naissance: %s",
