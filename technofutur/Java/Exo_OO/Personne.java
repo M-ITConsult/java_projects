@@ -1,13 +1,22 @@
 package technofutur.Java.Exo_OO;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Personne {
 
-    public Personne(String nom, String prenom, LocalDate dateNaissance) {
+    public Personne(String nom, String prenom, String dateNaissanceStr) {
         this.nom = nom;
         this.prenom = prenom;
-        this.datenaissance = dateNaissance;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.datenaissance = LocalDate.parse(dateNaissanceStr, formatter);
     }
+
+    private String nom;
+    private String prenom;
+    public LocalDate datenaissance;
+
+    // Guetter and Setter
+
 
     public String getNom() {
         return nom;
@@ -32,11 +41,6 @@ public class Personne {
     public void setDatenaissance(LocalDate datenaissance) {
         this.datenaissance = datenaissance;
     }
-
-    private String nom;
-    private String prenom;
-    public LocalDate datenaissance;
-
 }
 
-    // Guetter and Setter
+
