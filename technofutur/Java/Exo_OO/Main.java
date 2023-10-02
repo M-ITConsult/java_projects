@@ -2,8 +2,8 @@ package technofutur.Java.Exo_OO;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 //        Banque banque1 = new Banque("BNP");
 //
 //        Personne personne1 = new Personne("Test","test1","12/07/2021")

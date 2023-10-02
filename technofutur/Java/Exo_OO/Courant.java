@@ -16,6 +16,7 @@ public class Courant {
     private Personne titulaire;
 
     // Guetter and Setter
+
     public String getNumero() {
         return numero;
     }
@@ -33,16 +34,10 @@ public class Courant {
     }
 
     public Double getLigneDeCredit() {
-        if(ligneDeCredit >= 0) {
-            return ligneDeCredit;
-        } else {
-            System.out.println("Veuillez réassayer.");
-        }
-        return null;
+        return ligneDeCredit;
     }
 
     public void setLigneDeCredit(Double ligneDeCredit) {
-
         this.ligneDeCredit = ligneDeCredit;
     }
 
@@ -52,26 +47,5 @@ public class Courant {
 
     public void setTitulaire(Personne titulaire) {
         this.titulaire = titulaire;
-    }
-
-    public void retrait(double montant) {
-            if(montant > 0){
-              if(montant <= solde + ligneDeCredit){
-                  solde -= montant;
-                }
-            }
-    }
-
-    public void depot(double montant) {
-//            if(montant <= 0)
-//                System.out.println("Pas de possibilités de retrait");
-//
-//            if(solde - montant < -ligneDeCredit)
-//                System.out.println("");
-//
-//            solde -= montant;
-        if(montant > 0) {
-            solde += montant;
-        }
     }
 }
