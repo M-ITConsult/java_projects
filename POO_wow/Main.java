@@ -3,7 +3,17 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-//        Races race1= new Races("Horo","Elf","Horde",50);
+
+        Races race3 = new Races("","","",0);
+
+        // Exemple avec le level et le set
+        System.out.print("Entrez level: ");
+        race3.setLevel(sc.nextInt());
+        // Avec le get
+        System.out.printf("Le level de votre perso est: %s", race3.getLevel());
+
+        /* ------------------------------------------ */
+
 
         // Ajout d'un nom de personnage
         System.out.print("Entrez le nom du personnage: ");
@@ -21,15 +31,15 @@ public class Main {
         System.out.print("Entrez le level du personnage: ");
         int newLevel = sc.nextInt();
 
-        Races raceChoosen = new Races(newCharacter, newRace, newRaceClass, newLevel);
+        Races raceChosen = new Races(newCharacter, newRace, newRaceClass, newLevel);
 
         System.out.printf("Nom du personnage: %s%n" +
                             "Nom de la race: %s%n" +
                             "Nom de la classe: %s%n" +
                             "Level du personnage: %s",
-                            raceChoosen.getName(),
-                            raceChoosen.getRaceName(),
-                            raceChoosen.getRaceClass(),
-                            raceChoosen.getLevel());
+                            raceChosen.getName(),
+                            raceChosen.getRaceName(),
+                            raceChosen.getRaceClass(),
+                            raceChosen.getLevel());
     }
 }
