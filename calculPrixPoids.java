@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class calculPrixPoids {
+    static Scanner sc = new Scanner(System.in);
     static final int kilo = 1000;
 
     // Pour connaître le prix au kg de l'article
     public static void prixAuKg() {
-        Scanner sc = new Scanner(System.in);
 
         System.out.print("Entrez le prix de votre article: ");
         double price = sc.nextDouble();
@@ -19,7 +19,6 @@ public class calculPrixPoids {
 
     // Pour connaître le prix de l'article en connaissant le prix au kg et le poids de l'article
     public static void prixPiece() {
-        Scanner sc = new Scanner(System.in);
 
         System.out.print("Entrez le prix au kg de votre article: ");
         double priceKg = sc.nextDouble();
@@ -32,7 +31,6 @@ public class calculPrixPoids {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
         while (true) {
         System.out.println("\nEntez votre choix:\n1. Prix au KG\n2. Prix de l'article\n3. Exit");
