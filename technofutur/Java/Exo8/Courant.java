@@ -1,4 +1,4 @@
-package technofutur.Java.Exo7;
+package technofutur.Java.Exo8;
 
 public class Courant extends Compte {
 

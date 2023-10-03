@@ -1,4 +1,4 @@
-package technofutur.Java.Exo7;
+package technofutur.Java.Exo8;
 
 import java.time.LocalDate;
 
@@ -112,13 +112,16 @@ public class Main {
 
         //EXO 7 TEST
 
-        IBanker banker = compte1;
-        ICustomer customer = compte2;
+//        IBanker banker = compte1;
+//        ICustomer customer = compte2;
 
+        compte1.setSolde(500);
 
+//        compte1.changerDevise(Devise.EURO);
+        System.out.printf("Solde en euro: %s€%n", compte1.getSolde());
 
-
-
+        compte1.changerDevise(Devise.DOLLAR);
+        System.out.printf("Solde en dollar: %s$", compte1.getSolde());
 
 
 

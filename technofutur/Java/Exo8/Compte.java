@@ -1,7 +1,9 @@
-package technofutur.Java.Exo7;
+package technofutur.Java.Exo8;
 
 
-public abstract class Compte implements IBanker, ICustomer{
+public abstract class Compte implements IBanker, ICustomer {
+    private Devise devise;
+
     public Compte(String numero , Personne titulaire) {
         this.numero = numero;
         this.solde = 0;
@@ -9,6 +11,11 @@ public abstract class Compte implements IBanker, ICustomer{
     }
 
     private String numero;
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
     private double solde;
     private Personne titulaire;
 
@@ -32,6 +39,10 @@ public abstract class Compte implements IBanker, ICustomer{
     }
 
     protected abstract double CalculInteret();
+
+    public void changerDevise(Devise devise) {
+        this.solde = devise.apply(this.solde);
+    }
 
     public void retrait(double montant, double ligneDeCredit){
         if (montant <= 0)
