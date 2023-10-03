@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Banque {
 
     private String nom;
-    private HashMap<String, Compte> comptes = new HashMap<>();
+    private HashMap<String, Compte > comptes = new HashMap<>();
 
 
     public String getNom() {
@@ -32,7 +32,9 @@ public class Banque {
         }
     }
 
-    public double avoirDesComptes(Personne p) {
+    public double avoirDesComptes(Personne p)
+    {
+
         double avoir = 0;
 
         for (Compte c : comptes.values()) {

@@ -1,4 +1,4 @@
-package technofutur.Java.Exo6;
+package technofutur.Java.Exo7;
 
 public abstract class Compte {
     public Compte(String numero , Personne titulaire) {

@@ -1,4 +1,4 @@
-package technofutur.Java.Exo5;
+package technofutur.Java.Exo7;
 
 import java.time.LocalDate;
 
@@ -80,6 +80,7 @@ public class Main {
         System.out.println(clientATester.getNom()+" "+clientATester.getPrenom()+"\n" +
                            "---------------------");
 
+        // Méthode forEach
         banque.getComptes().forEach((key,value)->{
             if(value.getTitulaire().equals(clientATester)){
 
@@ -96,6 +97,14 @@ public class Main {
                            "Total des avoirs : "+ totalAvoir);
 
 
+        // Autre méthode de forEach
+        for (Compte c : banque.getComptes().values()){
+            c.appliquerInteret();
+        }
+
+        totalAvoir = banque.avoirDesComptes(client1);
+
+        System.out.printf("Total des avoirs avec interets: %s€ du compte de Mr %s", totalAvoir, client1.getNom());
 
 
     }

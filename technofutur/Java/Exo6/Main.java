@@ -32,7 +32,7 @@ public class Main {
         compte1.retrait(300);
         compte2.retrait(900);
 
-        //Mise en forme et affichage des information des comptes
+        //Mise en forme et affichage des informations des comptes
 
         banque.getComptes().forEach((key,value)->{
 
@@ -54,39 +54,57 @@ public class Main {
         //Ajout du compte à la banque
         banque.ajouter(compte3);
 
+        //EXO 5 TEST
+
+        //Création d'un compte "Epargne"
+        Epargne epargne1 = new Epargne("BE0001E", client2);
+
+        // Ajout du compte epargne à la banque
+        banque.ajouter(epargne1);
+
+        //Utilisation de la Méthode "depot" via "Banque"
+        banque.getComptes().get(epargne1.getNumero()).depot(100);
+        //Utilisation de la Méthode "retrait" via "Banque"
+        banque.getComptes().get(epargne1.getNumero()).retrait(50);
+        //Depuis ma banque je recupere le compte qui possèle clé égale au numero du compte
+        // que je passe comme valeur, sur le compte récupéré je fais un depot/retrait
+
+
+        // Définition du variable personne pour les tests
+        Personne clientATester = client2;
+
         //Utilisation de la Méthode "avoirDesComptes"
-        double totalAvoir = banque.avoirDesComptes(client1);
+        double totalAvoir = banque.avoirDesComptes(clientATester);
 
         //Mise en forme et affichage du total des avoirs d'un client
-        System.out.println(client1.getNom()+" "+client1.getPrenom()+"\n" +
-                           "\n---------------------\n");
+        System.out.println(clientATester.getNom()+" "+clientATester.getPrenom()+"\n" +
+                           "---------------------");
 
+        // Méthode forEach
         banque.getComptes().forEach((key,value)->{
-            if(value.getTitulaire().equals(client1)){
-                System.out.println( "Compte : " + key+"\n");
+            if(value.getTitulaire().equals(clientATester)){
+
+                if (value instanceof Epargne){
+                    System.out.println("Compte : " + key+" | Dernier retrait : "+ ((Epargne) value).getDateDernierRetrait()+"");
+                }
+                else{
+                    System.out.println( "Compte : " + key+"");
+                }
             }
         });
 
         System.out.println("---------------------\n" +
                            "Total des avoirs : "+ totalAvoir);
 
-        //Création d'un compte "Epargne"
-        Epargne epargne1 = new Epargne("BE0001E", client2);
 
-        // Ajout du compte épargne à la banque
-        banque.ajouter(epargne1);
+        // Autre méthode de forEach
+        for (Compte c : banque.getComptes().values()){
+            c.appliquerInteret();
+        }
 
-        banque.getComptes().get("BE0001E").depot(3200);
-        banque.getComptes().get("BE0001E").retrait(200);
+        totalAvoir = banque.avoirDesComptes(client1);
 
-        System.out.println(epargne1.getSolde());
-
-
-        // Affichage du total des avoirs d'un compte
-        double totalAvoir2 = banque.avoirDesComptes(client2);
-        System.out.printf("Total des avoirs du client2: %s€", totalAvoir2);
-
-
+        System.out.printf("Total des avoirs avec interets: %s€ du compte de Mr %s", totalAvoir, client1.getNom());
 
 
     }

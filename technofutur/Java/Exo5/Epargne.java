@@ -2,7 +2,6 @@ package technofutur.Java.Exo5;
 
 import java.time.LocalDate;
 
-
 public class Epargne extends Compte {
 
     public Epargne(String numero, Personne titulaire) {
@@ -25,7 +24,7 @@ public class Epargne extends Compte {
         double AncientSolde = super.getSolde();
         super.retrait(montant);
 
-        if (this.getSolde() != AncientSolde)
+        if (super.getSolde() != AncientSolde)
         {
             dateDernierRetrait = LocalDate.now();
         }
