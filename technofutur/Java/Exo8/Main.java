@@ -115,15 +115,28 @@ public class Main {
 //        IBanker banker = compte1;
 //        ICustomer customer = compte2;
 
+        // Ici la conversion Euro > Dollar du solde avec un set
         compte1.setSolde(500);
 
-//        compte1.changerDevise(Devise.EURO);
+        // On get le solde
         System.out.printf("Solde en euro: %s€%n", compte1.getSolde());
 
+        // Puis on le change en Dollar
         compte1.changerDevise(Devise.DOLLAR);
-        System.out.printf("Solde en dollar: %s$", compte1.getSolde());
+        System.out.printf("Solde en dollar: %s$%n", compte1.getSolde());
 
+        /*-----------------------------------------------------------------*/
+        System.out.println();
 
+        // Ici la conversion Dollar > Euro du solde avec un set
+        compte1.setSolde(500);
+
+        // On get le solde
+        System.out.printf("Solde en dollar: %s$%n", compte1.getSolde());
+
+        // Puis on le change en Dollar
+        compte1.changerDevise(Devise.EURO);
+        System.out.printf("Solde en euro: %s€", compte1.getSolde());
 
     }
 }

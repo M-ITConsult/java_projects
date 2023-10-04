@@ -1,11 +1,12 @@
 package POO_wow;
 import java.util.Scanner;
+
 public class Main {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
         Races race3 = new Races("","","",0);
-
+    
         // Exemple avec le level et le set
         System.out.print("Entrez level: ");
         race3.setLevel(sc.nextInt());
@@ -13,7 +14,6 @@ public class Main {
         System.out.printf("Le level de votre perso est: %s", race3.getLevel());
 
         /* ------------------------------------------ */
-
 
         // Ajout d'un nom de personnage
         System.out.print("Entrez le nom du personnage: ");
@@ -41,5 +41,8 @@ public class Main {
                             raceChosen.getRaceName(),
                             raceChosen.getRaceClass(),
                             raceChosen.getLevel());
+
+                            
+                            
     }
 }
