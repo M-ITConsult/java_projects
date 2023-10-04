@@ -6,7 +6,7 @@ public class Employee extends Personne {
     }
 
     @Override
-    void saluer() {
+    public void saluer() {
         super.saluer();
     }
 }

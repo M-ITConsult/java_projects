@@ -10,7 +10,7 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    void saluer(){
+    public void saluer(){
         System.out.printf("Bonjour à tous! Je suis %s %s ", nom, prenom);
     }
 }

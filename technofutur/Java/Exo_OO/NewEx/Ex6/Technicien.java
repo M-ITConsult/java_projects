@@ -6,7 +6,7 @@ public class Technicien extends Personne {
     }
 
     @Override
-    void saluer() {
+    public void saluer() {
         System.out.printf("Bonjour je suis %s %s votre technicien", nom, prenom);
     }
 }
