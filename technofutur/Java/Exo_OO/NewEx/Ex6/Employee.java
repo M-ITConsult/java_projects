@@ -4,9 +4,4 @@ public class Employee extends Personne {
     public Employee(String nom, String prenom) {
         super(nom, prenom);
     }
-
-    @Override
-    public void saluer() {
-        super.saluer();
-    }
 }
