@@ -5,9 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Personne personne1 = new Personne();
 
-        personne1.setPrenom("Jean-Christophe");
-        personne1.setNom("Miler");
-        personne1.setDateNaiss(LocalDate.of(1984,7,22));
+        personne1.setPrenom("Thor");
+        personne1.setNom("Avengers");
+        personne1.setDateNaiss(LocalDate.of(1000,11,11));
 
         personne1.sePresenter();
 
