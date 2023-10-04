@@ -2,7 +2,7 @@ package technofutur.Java.Exo_OO.NewEx.Ex6;
 
 public class Main {
     public static void main(String[] args) {
-        Personne personne1 = new Personne("Miler", "Jean-Christophe");
+        Personne personne1 = new Personne("Captain", "America");
         personne1.saluer();
 
         System.out.println();
