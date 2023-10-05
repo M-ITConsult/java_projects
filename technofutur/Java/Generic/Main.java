@@ -19,6 +19,7 @@ public class Main {
         scoreEleve.ajouter(18);
 
         // Afficher
+        scoreEleve.supprimer(0);
         listeCourse.afficher();
         scoreEleve.afficher();
 

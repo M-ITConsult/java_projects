@@ -24,7 +24,7 @@ public class ListeGenerique<T> {
         }
     }
 
-    // Supprime une valeur
+    // Supprime une valeur "T valeur ou indice"
     public void supprimer(T valeur){
         valeurs.remove(valeur);
     }
