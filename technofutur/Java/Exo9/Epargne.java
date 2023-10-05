@@ -21,7 +21,7 @@ public class Epargne extends Compte {
     }
 
     @Override
-    public void retrait(double montant){
+    public void retrait(double montant) throws ExceptionPhrase {
         double AncientSolde = super.getSolde();
         super.retrait(montant);
 

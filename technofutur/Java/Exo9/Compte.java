@@ -42,32 +42,29 @@ public abstract class Compte implements IBanker, ICustomer {
 
     public void changerDevise(Devise devise) {this.solde = devise.apply(this.solde);}
 
-    public void retrait(double montant, double ligneDeCredit){
-        if (montant <= 0)
-            return; //à remplacer plus tard par une exception
+    public void retrait(double montant, double ligneDeCredit) throws ExceptionPhrase {
 
-        if (montant > solde + ligneDeCredit)
-            return; //à remplacer plus tard par une exception
-
-        solde -= montant;
-
-    }
-
-
-    @Override
-    public void retrait(double montant){
-        // Mise en place d'un try catch
-        try {
             if (montant <= 0)
-                return; //à remplacer plus tard par une exception
+                throw new ExceptionPhrase("Le montant doit être supérieur à zéro");
 
-            if (montant > solde)
-                return; //à remplacer plus tard par une exception
+            if (montant > solde + ligneDeCredit)
+                throw new ExceptionPhrase("Le montant doit être supérieur à zéro");
 
             solde -= montant;
-        } catch (Exception e) {
-            System.out.println("Le montant est inférieur à zéro!");
+
         }
+
+    @Override
+    public void retrait(double montant) throws ExceptionPhrase {
+        // Mise en place d'un try catch
+
+            if (montant <= 0)
+                throw new ExceptionPhrase("Le montant doit être supérieur à zéro");
+
+            if (montant > solde)
+                throw new ExceptionPhrase("Le montant doit être supérieur à zéro");
+
+            solde -= montant;
     }
 
     @Override

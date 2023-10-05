@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         //EXO2 Test
 
         //Création d'une banque
@@ -24,14 +24,22 @@ public class Main {
         banque.ajouter(compte2);
 
         //Utilisation de la Méthode "depot"
-        compte1.depot(500);
+        compte1.depot(200);
         compte2.depot(1500);
 
 
         //Utilisation de la Méthode "retrait"
-        compte1.retrait(300);
-        compte2.retrait(900);
+        try {
+        compte1.retrait(-300);
+        } catch (ExceptionPhrase e){
+            System.out.println(e.getMessage());
+        }
+        try {
 
+            compte2.retrait(900);
+        } catch (ExceptionPhrase e){
+            System.out.println(e.getMessage());
+        } catch (Exception e) { e.printStackTrace();}
         //Mise en forme et affichage des informations des comptes
 
         banque.getComptes().forEach((key,value)->{
@@ -64,8 +72,13 @@ public class Main {
 
         //Utilisation de la Méthode "depot" via "Banque"
         banque.getComptes().get(epargne1.getNumero()).depot(100);
+        try {
         //Utilisation de la Méthode "retrait" via "Banque"
         banque.getComptes().get(epargne1.getNumero()).retrait(50);
+        } catch (ExceptionPhrase e){
+            System.out.println(e.getMessage());
+            System.exit(0);
+        }
         //Depuis ma banque, je récupère le compte qui possèle clé égale au numero du compte
         // que je passe comme valeur, sur le compte récupéré, je fais un depot/retrait
 

@@ -21,7 +21,7 @@ public class Courant extends Compte {
     }
 
     @Override
-    public void retrait(double montant){
+    public void retrait(double montant) throws ExceptionPhrase {
         retrait(montant, ligneDeCredit);
     }
 
