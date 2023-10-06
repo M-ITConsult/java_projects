@@ -1,6 +1,6 @@
 package technofutur.Java.Exo_IntFunc;
 
-public class Voiture {
+public class Voiture extends Carwash {
 
     private String Plaque;
 

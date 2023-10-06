@@ -1,6 +1,7 @@
 package technofutur.Java.Exo_IntFunc;
 
+import java.util.function.Consumer;
+
 @FunctionalInterface
-interface IVoiture {
-    void traiterVoiture(Voiture voiture);
+interface IVoiture<T extends Voiture> extends Consumer<T> {
 }

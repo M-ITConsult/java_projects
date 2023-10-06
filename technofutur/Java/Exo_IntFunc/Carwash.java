@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carwash {
-    private List<IVoiture> traitements = new ArrayList<>();
+    private final List<IVoiture<Voiture>> traitements = new ArrayList<>();
 
     private void preparer(Voiture v) {
         System.out.printf("Préparation de la voiture: %s%n ", v.getPlaque());
@@ -30,8 +30,8 @@ public class Carwash {
     }
 
     public void traiter(Voiture v) {
-        for (IVoiture traitement : traitements) {
-            traitement.traiterVoiture(v);
+        for (IVoiture<Voiture> traitement : traitements) {
+            traitement.accept(v);
         }
     }
 }
