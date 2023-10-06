@@ -3,6 +3,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static technofutur.Java.Stream.Stream_1.*;
+import static technofutur.Java.Stream.InterfaceFunc.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,5 +43,7 @@ public class Main {
 
         exo_1();
         exo_2();
+        demo1();
+        demo2();
     }
 }
