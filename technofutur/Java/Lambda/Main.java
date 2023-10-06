@@ -41,6 +41,12 @@ public class Main {
             // Affichage liste valeur k et v
             System.out.printf("The day %s is %s%n", k, v);
         });
+
+        Runnable hello = () -> System.out.println("Hello World!");
+
+        hello.run();
+
+
     }
 
 

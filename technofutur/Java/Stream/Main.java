@@ -1,18 +1,24 @@
 package technofutur.Java.Stream;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+import static technofutur.Java.Stream.Stream_1.*;
+
 public class Main {
     public static void main(String[] args) {
         // Création de la liste
-        List<String> noms = List.of("test","test","test","marine","meli","thomas");
+        List<String> noms = List.of("test", "test", "test", "marine", "meli", "thomas");
 
         // Filtre de la liste commençant par "m"
         List<String> nomsFiltre = noms.stream()
-                .filter(nom -> nom.startsWith("m"))
+                .filter(nom -> {
+                    return nom.startsWith("m");
+                })
+                .map(String::toUpperCase)
                 .toList();
 
         // Affichage
-        for(String nom : nomsFiltre) {
+        for (String nom : nomsFiltre) {
             System.out.println(nom);
         }
 
@@ -23,7 +29,7 @@ public class Main {
                 .toList();
 
         // Affichage
-        for(String nom : nomsMaj) {
+        for (String nom : nomsMaj) {
             System.out.println(nom);
         }
 
@@ -32,7 +38,10 @@ public class Main {
                 .map(String::toLowerCase)
                 .toList();
 
-        for(String nom : test1) {
-            System.out.println(nom);}
+        for (String nom : test1) {
+            System.out.println(nom);
         }
+
+        exo_1();
+    }
 }
