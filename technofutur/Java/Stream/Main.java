@@ -4,7 +4,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Création de la liste
-        List<String> noms = List.of("test","test","test","marine","meli","marrion");
+        List<String> noms = List.of("test","test","test","marine","meli","thomas");
 
         // Filtre de la liste commençant par "m"
         List<String> nomsFiltre = noms.stream()
@@ -26,5 +26,13 @@ public class Main {
         for(String nom : nomsMaj) {
             System.out.println(nom);
         }
-    }
+
+        // Liste test
+        List<String> test1 = noms.stream()
+                .map(String::toLowerCase)
+                .toList();
+
+        for(String nom : test1) {
+            System.out.println(nom);}
+        }
 }
