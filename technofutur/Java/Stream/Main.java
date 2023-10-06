@@ -11,9 +11,7 @@ public class Main {
 
         // Filtre de la liste commençant par "m"
         List<String> nomsFiltre = noms.stream()
-                .filter(nom -> {
-                    return nom.startsWith("m");
-                })
+                .filter(nom -> {return nom.startsWith("m");})
                 .map(String::toUpperCase)
                 .toList();
 
