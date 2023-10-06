@@ -69,4 +69,5 @@ public class Calculator <T extends Number> {
             throw  new IllegalAccessException("Illegal div");
         }
     }
+
 }
