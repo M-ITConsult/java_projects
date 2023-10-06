@@ -41,5 +41,6 @@ public class Main {
         }
 
         exo_1();
+        exo_2();
     }
 }

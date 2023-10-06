@@ -3,7 +3,6 @@ package technofutur.Java.Stream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Stream_1 {
 
@@ -34,6 +33,7 @@ public class Stream_1 {
                 .toList();
 
         System.out.printf("Ici je récupère 5 valeurs: %s%n", numbVal);
+
         // Somme des 5 valeurs
         List<Integer> sumVal = Collections.singletonList(liste.stream()
                 .limit(5)
@@ -41,6 +41,10 @@ public class Stream_1 {
 
         // Afficher la somme
         System.out.printf("Ici je fais la somme des 5 valeurs: %s", sumVal);
+    }
+    static void exo_2() {
+
+
     }
 
 }
