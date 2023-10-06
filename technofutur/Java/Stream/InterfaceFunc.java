@@ -1,6 +1,7 @@
 package technofutur.Java.Stream;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class InterfaceFunc {
 
@@ -22,6 +23,35 @@ public class InterfaceFunc {
 
         // other method Consumer
         Consume c = new Consume();
-        c.accept("says Obiwan :)");
+        c.accept("says Obiwan :)\n");
+    }
+
+    static void demo3() {
+
+        // Interface function
+
+        Function<Integer, Integer> test = (nbr) -> nbr*2;
+
+        System.out.println(test.apply(5));
+
+        // Interface function classe anonyme
+
+        Function<Integer, Integer> testAno = new Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer integer) {
+                return integer*2;
+            }
+        };
+
+        System.out.println(testAno.apply(50));
+
+        //
+
+        Function<Integer, Boolean> test2 = (valeur) -> valeur % 2 == 0;
+        System.out.println(test2.apply(8));
+    }
+
+    static void exo1() {
+//        IFCustom<String, String, Integer, String> ifcustom = (nom, prenom, age)
     }
 }

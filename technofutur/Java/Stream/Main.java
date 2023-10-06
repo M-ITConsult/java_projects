@@ -1,7 +1,5 @@
 package technofutur.Java.Stream;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 import static technofutur.Java.Stream.Stream_1.*;
 import static technofutur.Java.Stream.InterfaceFunc.*;
 
@@ -45,5 +43,7 @@ public class Main {
         exo_2();
         demo1();
         demo2();
+        demo3();
+        exo1();
     }
 }
