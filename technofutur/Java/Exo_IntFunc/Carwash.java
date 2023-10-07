@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class Carwash {
-//    private final List<IVoiture<Voiture>> traitements = new ArrayList<>();
-    private Consumer<Voiture> traitements = voiture -> {};
+    // Méthode ArrayList
+    private final List<IVoiture<Voiture>> traitements = new ArrayList<>();
+    // Méthode Consumer
+//    private Consumer<Voiture> traitements = voiture -> {};
 
     private void preparer(Voiture v) {
         System.out.printf("Préparation de la voiture: %s%n ", v.getPlaque());
@@ -25,18 +27,21 @@ public class Carwash {
     }
 
     public void subscribe() {
-//        traitements.add(this::preparer);
-//        traitements.add(this::laver);
-//        traitements.add(this::secher);
-//        traitements.add(this::finaliser);
-        traitements = this::preparer;
-        traitements = traitements.andThen(this::laver);
-        traitements = traitements.andThen(this::secher);
-        traitements = traitements.andThen(this::finaliser);
+        // Méthode ArrayList
+        traitements.add(this::preparer);
+        traitements.add(this::laver);
+        traitements.add(this::secher);
+        traitements.add(this::finaliser);
+        // Méthode Consumer
+//        traitements = this::preparer;
+//        traitements = traitements.andThen(this::laver);
+//        traitements = traitements.andThen(this::secher);
+//        traitements = traitements.andThen(this::finaliser);
     }
 
     public void traiter(Voiture v) {
-//        for (IVoiture<Voiture> traitement : traitements) {
-            traitements.accept(v);
+        for (IVoiture<Voiture> traitement : traitements) {
+            traitement.accept(v);
         }
+    }
 }
