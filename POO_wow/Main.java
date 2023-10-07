@@ -17,15 +17,15 @@ public class Main {
 
         // Ajout d'un nom de personnage
         System.out.print("Entrez le nom du personnage: ");
-        String newCharacter = sc.nextLine();
+        String newCharacter = sc.next();
 
         // Ajout du nom de la race
         System.out.print("Entrez le nom de la race: ");
-        String newRace = sc.nextLine();
+        String newRace = sc.next();
 
         // Ajout de la classe
         System.out.print("Entrez la classe: Horde ou Alliance ");
-        String newRaceClass = sc.nextLine();
+        String newRaceClass = sc.next();
 
         // Ajout du niveau du personnage
         System.out.print("Entrez le level du personnage: ");
