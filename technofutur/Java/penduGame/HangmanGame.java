@@ -394,7 +394,16 @@ public class HangmanGame {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("\nMenu:\n1. Play Hangman\n2. Modify Category\n3. Create Category\n4. Delete Category\n5. Clean Backup Folder\n6. Quit\nEnter your choice: ");
+            System.out.print("""
+                    
+                    Menu:
+                    1. Play Hangman
+                    2. Modify Category
+                    3. Create Category
+                    4. Delete Category
+                    5. Clean Backup Folder
+                    6. Quit
+                    Enter your choice:""");
             String choice = scanner.nextLine();
 
             switch (choice) {
